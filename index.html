@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Element Quiz</title>
+<style>
+body {
+background: url(background.jpg) no-repeat center fixed;
+opacity:0.90;
+background-size: 100% 113%;
+font-family: Palatino;
+}
+
+#main {
+width: 550%;
+max-width: 950px;
+border: 1px gray solid;
+margin: auto;
+padding: 10px;
+background-color: white;
+border-radius: 10px;
+border: 1px solid #c6c7cc;
+font: 14px/1.4 "Palatino";
+overflow: hidden;
+width: 800px;
+padding-top: 30px;
+padding-right: 30px;
+padding-bottom: 30px;
+padding-left: 30px;
+    }
+
+#header {
+margin-top: 0;
+border: 2px solid black;
+padding: 5px;
+height: 250px;
+background: beige;
+background-image: url("element-header.png");
+background-position: center;
+background-size: 100% 170%;
+    color: black;
+font-family:"Palatino";
+font-size: 15px;
+text-align: center
+    }
+    label {
+display: block;
+}
+
+input {
+width: 30px;
+margin-left: 20px;
+}
+
+h2 {
+clear: both;
+padding-top: 20px;
+}
+
+button {
+width: 100px;
+margin-top: 20px;
+}
+</style>
+
+
+    </head>
+
+
+
+<body>
+<div id="main"><!-- open main div -->
+<div id="header"><!-- open header div -->
+
+<h1>Avatar: The Last Airbender - What Element Would You Bend? </h1>
+
+
+<form id="form1">
+</div><!-- close header div -->
+
+<br>
+<h2>What kind of weather do you prefer?</h2>
+<p><input type="radio" name="weather" value="Fire" />I like it warm.<br>
+<input type="radio" name="weather" value="Water" />I like it cold.<br>
+<input type="radio" name="weather" value="Air" />I like a breeze but not too hot or too cold.<br>
+<input type="radio" name="weather" value="Earth" />I dont really care.<br>
+<input type="radio" name="weather" value="All" />I like all weather.</p>
+<br>
+
+<br>
+<h2>What characteristic do you have the most?</h2>
+<p><input type="radio" name="characteristic" value="Air" />I am fun and loving.<br>
+<input type="radio" name="characteristic" value="Fire" />I am strong and focused.<br>
+<input type="radio" name="characteristic" value="Earth" />I am wise.<br>
+<input type="radio" name="characteristic" value="All" />I'm well rounded.<br>
+<input type="radio" name="characteristic" value="Water" />I am caring.</p>
+<br>
+
+
+<br>
+<h2>What animal do you admire the most?</h2>
+<p><input type="radio" name="animal" value="Water" />Penguin<br>
+<input type="radio" name="animal" value="Fire" />Lizard<br>
+<input type="radio" name="animal" value="All" />Dog<br>
+<input type="radio" name="animal" value="Air" />Bird<br>
+<input type="radio" name="animal" value="Earth" />Monkey</p>
+<br>
+
+<br>
+<h2>What occupation do you most likely see yourself doing?</h2>
+<p><input type="radio" name="occupation" value="Fire" />Soldier<br>
+<input type="radio" name="occupation" value="Air" />Teacher<br>
+<input type="radio" name="occupation" value="Water" />Doctor<br>
+<input type="radio" name="occupation" value="Earth" />Architect<br>
+<input type="radio" name="occupation" value="All" />None of these I'm not really sure yet.</p>
+<br>
+
+<tr><td>
+<h2>Who is your favorite character on the show?</h2></td><td>
+<p><label><input type="radio" name="character" value="All" /><img src="Aang.png" width="200"/><label></td><td>
+<label><input type="radio" name="character" value="Air" /><img src="Appa.jpg" width="250"/><label></td><td>
+<br><label><input type="radio" name="character" value="Water" /><img src="Katara.jpg" width="250"/><label></td><td>
+<label><input type="radio" name="character" value="Earth" /><img src="Toph.jpg" width="250"/><label></td><td>
+<br><label><input type="radio" name="character" value="Fire" /><img src="zuko1.png" width="250"/><label></p>
+</td></tr>
+
+<br>
+<h2>What is your favorite color?</h2>
+<p><input type="radio" name="color" value="Air" />White<br>
+<input type="radio" name="color" value="Water" />Blue<br>
+<input type="radio" name="color" value="Fire" />Red<br>
+<input type="radio" name="color" value="Earth" />Green<br>
+<input type="radio" name="color" value="All" />I can't decide between the ones above, I like all colors!</p>
+<br>
+
+<br>
+<h2>What is your weakness?</h2>
+
+<p><input type="radio" name="weakness" value="Earth" />Confidence<br>
+<input type="radio" name="weakness" value="All" />Organization<br>
+<input type="radio" name="weakness" value="Fire" />Being focused<br>
+<input type="radio" name="weakness" value="Water" />Being a listner<br>
+<input type="radio" name="weakness" value="Air" />Being a talker</p>
+
+
+<br>
+
+<p><input type="submit" value="Submit"></p>
+
+
+</form>
+<p id="answer"></p>
+<p id="answer2"></p>
+<p id="answer3"></p>
+<p id="answer4"></p>
+<p id="answer5"></p>
+<p id="answer6"></p>
+</div>
+
+
+<script>
+
+    document.getElementById("form1").onsubmit=function() {
+
+	  weather = document.querySelector('input[name = "weather"]:checked').value;
+
+	  characteristic = document.querySelector('input[name = "characteristic"]:checked').value;
+
+	  animal = document.querySelector('input[name = "animal"]:checked').value;
+
+	  occupation = document.querySelector('input[name = "occupation"]:checked').value;
+
+	  character = document.querySelector('input[name = "character"]:checked').value;
+
+	  color = document.querySelector('input[name = "color"]:checked').value;
+
+	  weakness = document.querySelector('input[name = "weakness"]:checked').value;
+
+	  // initialize score variables
+	  All = 0;
+	  Fire = 0;
+	  Water = 0;
+	  Earth = 0;
+	  Air = 0;
+
+	  //function to calculate score for each question
+	  function eachscore(x){
+	  if(x == "All") { All = All + 1}
+	  if(x == "Fire") { Fire = Fire + 1}
+	  if(x == "Water") { Water = Water + 1}
+	  if(x == "Earth") { Earth = Earth + 1}
+	  if(x == "Air") { Air = Air + 1}
+	  }
+	  // for the above function, you could also change the 1 to a variable so you could give more points for certain questions
+
+	  //call function for each question
+	  eachscore(eval("weather"));
+	  eachscore(eval("characteristic"));
+	  eachscore(eval("animal"));
+	  eachscore(eval("occupation"));
+	  eachscore(eval("character"));
+	  eachscore(eval("color"));
+	  eachscore(eval("weakness"));
+
+	  //document.getElementById("answer").innerHTML = quiet;
+	  //document.getElementById("answer2").innerHTML = spoon;
+	  //document.getElementById("answer3").innerHTML = willie;
+
+	  all = [All, Fire, Water, Earth, Air];
+
+
+
+	//get the max score  in the array
+	maxscore = Math.max.apply(Math,all);
+
+    //figure out which score is the max score by identifying its index number
+	for(i=0; i<all.length; i++) {
+	if(all[i]==maxscore) {
+	highest = i;
+	}
+	}
+
+
+// object holding scores and feedback
+scores =
+[{index:0, feedback: "<b>Congratulations you are next in line to be the avatar! You have the potential to learn all four elements. <b><br /><center><img src='theavatar.gif' width='300' /></center>"},
+{index:1, feedback: "<b>You're a Firebender!</b><br /><center><img src='firebender.gif' width='300' /></center>"},
+{index:2, feedback: "<b>You're a Waterbender!</b><br /><center><img src='waterbender.gif' width='300' /></center>"},
+{index:3, feedback: "<b>You're an Earthbender!</b><br /><center><img src='earthbender.gif' width='300' /></center>"},
+{index:4, feedback: "<b>You're an Airbender!</b><br /><center><img src='airbender.gif' width='300' /></center>"}];
+
+
+//loop to match index to score and reply with feedback
+for(i=0;i<scores.length; i++) {
+if(highest == scores[i].index) {
+document.getElementById("answer6").innerHTML = scores[i].feedback;
+}
+}
+
+
+
+
+
+
+	   return false; // required to not refresh the page; just leave this here
+	   }// end the submit function
+
+
+</script>
+
+</body>
+</html>
